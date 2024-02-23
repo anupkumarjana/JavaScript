@@ -17,7 +17,7 @@ function c() {
   var x = 300;
   console.log(x); // x is function scoped here
 }
-
+3
 //Output will be
 // 100
 // 200
