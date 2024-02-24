@@ -19,8 +19,8 @@ var d = 20;
 //---------------------------------------------------------------
 
 //syntax error: we can not declare two values with same variable name with let or const
-let x =7
-let x =10
+// let x =7
+// let x =10
 
 //-------------------------------------------
 
@@ -31,8 +31,8 @@ y=12;
 // -------------------------------------------------
 
 
-const t;
-t=100;
+// const t;
+// t=100;
 
 //syntax error: Missing initializer  in const declaration 
 
@@ -40,8 +40,8 @@ t=100;
 
 console.log("hello anup")
 
-let x =7
-let x =10
+// let x =7
+// let x =10
 
 // it'll not execute the log!!! It'll simply throw an error of syntax error
 
