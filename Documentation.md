@@ -457,5 +457,151 @@ z();
 
 Creating a closure for each iteration solves the loop issue with `var`. Each closure gets a new copy of `i`.
 
+## Function Statement vs. Function Expression:
+
+### 1. Function Statement:
+
+```javascript
+// Function statement can be hoisted
+function a() {
+  console.log("a called");
+}
+a();
+```
+
+Function statements can be hoisted, allowing them to be called before the declaration in the code.
+
+### 2. Function Expression:
+
+```javascript
+// Function expression cannot be hoisted
+const b = function () {
+  console.log("b called");
+};
+b();
+```
+
+Function expressions, stored in variables, cannot be hoisted. They need to be declared before usage.
+
+### 3. Function Declaration:
+
+```javascript
+// Function declaration and statement are the same thing
+function a() {
+  console.log("a called");
+}
+a();
+```
+
+Function declaration and statement are interchangeable; both can be hoisted.
+
+### 4. Anonymous Function:
+
+```javascript
+// Anonymous function doesn't have a name or identity
+// Used in places where functions are used as values
+// Example: callback functions
+function() {
+  //...
+}
+```
+
+Anonymous functions are often used as values, such as in callback functions.
+
+### 5. Named Function Expression:
+
+```javascript
+const c = function xyz() {
+  console.log("c called");
+};
+c(); // c called
+xyz(); // Reference error; xyz is in the local scope of c
+```
+
+Named function expressions have a name, but the name is only accessible within the function itself.
+
+### 6. Parameters vs. Arguments:
+
+```javascript
+const d = function xyz(param1, param2) {
+  console.log(param1 + param2);
+};
+d(1, 2); // Arguments: 1 and 2
+```
+
+Parameters are placeholders in the function definition, and arguments are the values passed during the function call.
+
+## First Class Functions:
+
+### 7. First Class Functions:
+
+```javascript
+const e = function xyz(param1) {
+  console.log(param1);
+};
+
+function x() {
+  console.log("x is called");
+}
+
+e(x);
+e(function () {
+  console.log("Hi");
+});
+```
+
+JavaScript treats functions as first-class citizens, allowing them to be used as values, parameters, and returned in other functions.
+
+## Callback Functions:
+
+### 8. Callback Functions:
+
+```javascript
+function x(y) {
+  console.log("x called");
+  y();
+}
+
+x(function y() {
+  console.log("y called ");
+});
+
+setTimeout(() => {
+  console.log("timer");
+}, 5000);
+
+document.getElementById("clickMe").addEventListener("click", () => {
+  console.log("button clicked");
+});
+```
+
+Callback functions are functions passed as arguments to other functions. They enable asynchronous behavior in synchronous code.
+
+## JavaScript Single-Threaded Nature:
+
+### 9. JavaScript is Single-Threaded:
+
+- JavaScript is a single-threaded and synchronous language.
+- Blocking the main thread can lead to performance issues.
+
+## Event Listeners and Closures:
+
+### 10. Event Listeners and Closures:
+
+- Deep dive into event listeners and closures.
+- Understanding scope and closures in the context of event listeners.
+
+## Garbage Collection and Remove Event Listeners:
+
+### 11. Garbage Collection and Remove Event Listeners:
+
+- Adding event listeners is a heavy operation that uses memory.
+- Exploring the importance of removing event listeners to avoid memory leaks.
+
+# Event Loop
+
+### Page-1
+
+![Page1](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page1.jpg)
+
 Feel free to use this README for your documentation!
-file:///home/anup/Downloads/MacBook%20Pro%2014_%20-%202.png
