@@ -1,22 +1,27 @@
 ### JavaScript Hoisting:
 
 #### 1. Variable Hoisting:
+
 ```javascript
 console.log(x); // Error: Cannot access 'x' before initialization
 let x = 10;
 ```
+
 In JavaScript, variables declared with `let` and `const` are hoisted to the top of their scope but not initialized. This is why trying to access them before the declaration results in an error.
 
 #### 2. Function Hoisting:
+
 ```javascript
 getName(); // Hello Anup
 function getName() {
   console.log("Hello Anup");
 }
 ```
+
 Functions, on the other hand, are fully hoisted, meaning you can use them before the declaration.
 
 #### 3. Arrow Functions and Variables:
+
 ```javascript
 getName2(); // Error: Cannot access 'getName2' before initialization
 console.log(z); // Error: Cannot access 'z' before initialization
@@ -25,11 +30,13 @@ const getName2 = () => {
 };
 let z = 10;
 ```
+
 Arrow functions, being similar to variables, also exhibit hoisting behavior. Trying to access them before initialization results in an error.
 
 ### Execution Context and Scope:
 
 #### 4. Function Scoped Variables:
+
 ```javascript
 let x = 10;
 a(); // 100
@@ -52,9 +59,11 @@ function c() {
   console.log(x); // x is function scoped here
 }
 ```
+
 JavaScript has function-scoped variables. The variable `x` inside each function is local to that function.
 
 #### 5. Global Object and "this":
+
 ```javascript
 console.log(this === window); // true in the browser
 let a = 10;
@@ -69,11 +78,13 @@ console.log(a); // 10
 console.log(this.a); // 10
 console.log(x); // Error: x is not defined
 ```
+
 In a browser, the global object is `window`. The `this` keyword refers to the global object, and if a variable is not found in the local scope, JavaScript looks for it in the global scope.
 
 ### Variable Declaration and Initialization:
 
 #### 6. Variable Declaration and Initialization:
+
 ```javascript
 console.log(a); // undefined
 var a = 10;
@@ -81,6 +92,7 @@ console.log(a); // 10
 console.log(b); // undefined
 var b;
 ```
+
 JavaScript is loosely typed, meaning variables can change types. If a variable is declared but not initialized, it's `undefined`.
 
 ```javascript
@@ -93,13 +105,12 @@ console.log(x); // Hi, this is x
 x = true;
 console.log(x); // true
 ```
+
 Variables can change types dynamically, showcasing JavaScript's weakly typed nature.
 
 Certainly! Below is a README file with your provided comments elaborated and organized:
 
 ---
-
-# JavaScript Concepts README
 
 ## Lexical Environment:
 
@@ -246,10 +257,10 @@ Declaring a constant variable without an initializer results in a syntax error.
 ### Syntax Errors:
 
 ```javascript
-console.log("hello anup")
+console.log("hello anup");
 
-let x = 7
-let x = 10
+let x = 7;
+let x = 10;
 // It'll not execute the log!!! It'll simply throw a syntax error.
 ```
 
@@ -263,4 +274,187 @@ s = 20;
 
 Assigning a new value to a constant variable results in a Type Error. Constants cannot be reassigned.
 
----
+## Block Statements and Scope:
+
+### 1. Block Statements:
+
+```javascript
+{
+  // This is a block, also called a compound statement
+  // We group multiple statements in a block to use it where JS expects one statement
+  const a = 10;
+  console.log(a);
+}
+
+if (true) {
+  // This is a block where we group const and log statements for use in an if statement
+  const a = 10;
+  console.log(a);
+}
+```
+
+Blocks in JavaScript are used to group multiple statements, making them a single statement for contextual usage.
+
+### 2. Scope Behavior of `let`, `var`, `const`:
+
+```javascript
+{
+  var x = 10; // Global scoped, can be accessed anywhere
+  let y = 20; // Block scoped, cannot be accessed outside
+  const z = 30; // Block scoped, cannot be accessed outside
+}
+
+console.log(x); // 10
+console.log(y); // Reference error: y is not defined
+console.log(z); // Reference error: z is not defined
+```
+
+`var` is not block-scoped and can be accessed globally. `let` and `const` are block-scoped, limiting their accessibility.
+
+### 3. Shadowing in JavaScript:
+
+```javascript
+var d = 10;
+
+{
+  var d = 100;
+  console.log(d); // 100, var d in the block shadows the global var d
+}
+
+console.log(d); // 100, global var d gets shadowed by block-scoped d
+```
+
+`var` is not block-scoped; hence, it can be shadowed within a block, affecting the global variable.
+
+### 4. Script Scope vs. Block Scope:
+
+```javascript
+let x = 10; // Script scoped
+const y = 10; // Script scoped
+
+{
+  let x = 20; // Block scoped
+  const y = 20; // Block scoped
+  console.log(x); // 20
+  console.log(y); // 20
+}
+
+console.log(x); // 10
+console.log(y); // 10
+```
+
+`let` and `const` have block scope, while `var` would have script (or function) scope.
+
+### 5. Illegal Shadowing:
+
+```javascript
+// let a = 10  // This will throw an error; it's called illegal shadowing
+// {
+//     var a = 10
+// }
+```
+
+Attempting to declare a variable with `let` in a block where it was already declared with `var` results in an error.
+
+### 6. Function Scoping:
+
+```javascript
+let b = 20;
+
+function x() {
+  var b = 100; // No error; var is function-scoped
+}
+```
+
+### 7. Lexical Scoping and Closures:
+
+```javascript
+const a = 20;
+{
+  const a = 30;
+  {
+    const a = 40;
+    console.log(a); // Lexical scoped, prints the nearest "a" value: 40
+  }
+  console.log(a); // Prints 30; the nearest value is 30
+}
+```
+
+Lexical scoping keeps track of variables based on their nesting levels, forming a closure.
+
+### 8. Closures:
+
+```javascript
+function x() {
+  var a = 10;
+  function y() {
+    console.log(a);
+  }
+  return y; // Function x() returns function y()
+}
+
+var z = x();
+console.log(z); // Prints the function definition of y
+z(); // 10  // Invoking y() where it's stored, remembering its lexical scope reference
+```
+
+Uses of closures include Module Design Pattern, Currying, Functions like once, memoize, Maintaining state in Async world, setTimeout(), and iterators.
+
+### 9. Loop Issue and Solution:
+
+```javascript
+function x() {
+  for (var i = 1; i <= 5; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+  }
+
+  console.log("Hello Anup");
+}
+
+x();
+```
+
+In this code, `var` causes an issue as it is globally scoped. It prints 6 for every iteration.
+
+### 10. Fixing Loop Issue with `let`:
+
+```javascript
+function y() {
+  for (let i = 1; i <= 5; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+  }
+
+  console.log("Hello Anup");
+}
+
+y();
+```
+
+Using `let` solves the loop issue by creating a new lexical scope for each iteration.
+
+### 11. Fixing Loop Issue with `var` and Closure:
+
+```javascript
+function z() {
+  for (let i = 1; i <= 5; i++) {
+    function closure(i) {
+      setTimeout(() => {
+        console.log(i);
+      }, i * 1000);
+    }
+    closure(i); // Creates a new closure with a new copy of i
+  }
+
+  console.log("Hello Anup");
+}
+
+z();
+```
+
+Creating a closure for each iteration solves the loop issue with `var`. Each closure gets a new copy of `i`.
+
+Feel free to use this README for your documentation!
