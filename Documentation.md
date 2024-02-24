@@ -604,4 +604,32 @@ Callback functions are functions passed as arguments to other functions. They en
 
 ![Page1](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page1.jpg)
 
+### Page-2
+
+![Page2](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page2.jpg)
+
+### Page-3
+
+![Page3](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page3.jpg)
+
+### Page-4
+
+![Page4](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page4.jpg)
+
+### Page-5
+
+![Page5](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page5.jpg)
+
+### Page-6
+
+![Page6](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page6.jpg)
+
+### Page-7
+
+![Page7](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page7.jpg)
+
+### Page-8
+
+![Page8](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page8.jpg)
+
 Feel free to use this README for your documentation!
