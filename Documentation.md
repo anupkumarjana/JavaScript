@@ -632,4 +632,185 @@ Callback functions are functions passed as arguments to other functions. They en
 
 ![Page8](https://github.com/anupkumarjana/JavaScript/blob/main/Event%20Loop/page8.jpg)
 
+## 1. Higher-Order Functions and Callbacks
+
+### Code Example:
+
+```javascript
+// Callback function
+function x() {
+  console.log("hi");
+}
+
+// Higher-order function
+function y(callback) {
+  callback();
+}
+```
+
+### Explanation:
+
+- **Higher-Order Functions:** Functions that take other functions as arguments or return functions.
+- **Callback Functions:** Functions passed as arguments to other functions.
+
+## 2. Area, Circumference, and Diameter Calculations
+
+### Code Example:
+
+```javascript
+const radius = [2, 4, 5, 6];
+
+const areaFormula = (r) => 4 * 3.14 * r * r;
+const circumferenceFormula = (r) => 2 * 3.14 * r;
+const diameterFormula = (r) => 2 * r;
+
+// Using higher-order function to calculate values
+const calculateValues = (radiusArray, logicFunction) => {
+  return radiusArray.map((r) => logicFunction(r));
+};
+
+let area = calculateValues(radius, areaFormula);
+let circumference = calculateValues(radius, circumferenceFormula);
+let diameter = calculateValues(radius, diameterFormula);
+```
+
+### Explanation:
+
+- Demonstrates higher-order functions and callback functions for calculating circle properties.
+
+## 3. Map Method
+
+### Code Example:
+
+```javascript
+const arr = [1, 2, 3, 4, 5];
+
+const double = (element) => element * 2;
+const triple = (element) => element * 3;
+
+const outputDouble = arr.map(double);
+const outputTriple = arr.map(triple);
+```
+
+### Explanation:
+
+- Utilizes the `map` method to transform array elements based on provided functions.
+
+## 4. Filter Method
+
+### Code Example:
+
+```javascript
+const array = [12, 34, 55, 87, 56, 43];
+
+const oddArray = array.filter((element) => element % 2 !== 0);
+const evenArray = array.filter((element) => element % 2 === 0);
+const greaterThanThirty = array.filter((element) => element > 30);
+```
+
+### Explanation:
+
+- Uses the `filter` method to create new arrays with specific conditions.
+
+## 5. Reduce Method
+
+### Code Example:
+
+```javascript
+const list = [12, 34, 55, 87, 56, 43];
+
+const sumOfList = list.reduce(
+  (accumulator, current) => accumulator + current,
+  0
+);
+const maxVal = list.reduce(
+  (max, current) => (current > max ? current : max),
+  0
+);
+```
+
+### Explanation:
+
+- Demonstrates the `reduce` method for aggregating values in an array.
+
+## 6. User Data Operations
+
+### Code Example:
+
+```javascript
+const users = [
+  { firstName: "Anup", lastName: "Jana", gender: "male", age: 25 },
+  { firstName: "Arpita", lastName: "Biswas", gender: "female", age: 25 },
+  { firstName: "Swarup", lastName: "Jana", gender: "male", age: 22 },
+  { firstName: "Gargi", lastName: "Mosha", gender: "female", age: 17 },
+  { firstName: "Irani", lastName: "Chowdhury", gender: "female", age: 17 },
+];
+
+// * get the full name of every user
+
+const fullName = users.map((user) => user.firstName + " " + user.lastName);
+console.log(fullName);
+
+// // get user firstName who have age below 20
+
+const belowTwentyUsers = users
+  .filter((user) => user.age < 20)
+  .map((user) => user.firstName);
+
+console.log(belowTwentyUsers);
+
+// // get the count of ages {17:2, 25:2, 22:1}
+
+const countAges = users.reduce((acc, curr) => {
+  if (acc[curr.age]) {
+    acc[curr.age] += 1;
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+}, {});
+
+console.log(countAges);
+
+// // Get the user first names who have the same last name
+
+const sameLastNameUsers = users.reduce((acc, curr) => {
+  const existingUser = acc.find((user) => user.lastName === curr.lastName);
+  if (existingUser) {
+    existingUser.firstNames.push(curr.firstName);
+  } else {
+    acc.push({ lastName: curr.lastName, firstNames: [curr.firstName] });
+  }
+  return acc;
+}, []);
+console.log("Users with the Same Last Name:", sameLastNameUsers);
+
+// // Sort the users by age
+
+const sortedUsersByAge = users.sort((a, b) => a.age - b.age);
+console.log("Sorted Users by Age:", sortedUsersByAge);
+
+// // Get the user who has the same number of letters in the first name
+
+const sameLetterCountUsers = users.filter((user) => {
+  const firstNameLength = user.firstName.length;
+  return users.some(
+    (u) => u.firstName.length === firstNameLength && u !== user
+  );
+});
+console.log(
+  "Users with the Same Letter Count in First Name:",
+  sameLetterCountUsers
+);
+
+// // Get the users separated by gender
+
+const maleUsers = users.filter((user) => user.gender === "male");
+const femaleUsers = users.filter((user) => user.gender === "female");
+console.log("Male Users:", maleUsers);
+console.log("Female Users:", femaleUsers);
+```
+
+Feel free to explore and modify the code for your own learning and understanding of higher-order functions and array methods in JavaScript.
+
 Feel free to use this README for your documentation!
