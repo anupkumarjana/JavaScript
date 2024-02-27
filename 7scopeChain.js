@@ -1,6 +1,6 @@
 // Lexical Environment:   Its means Hierarchy
 // When a Global Execution context is created, a Lexical Environment is created.
-// Lexical Environment is the loacal memory along with its Environment for its parent
+// Lexical Environment is the local memory along with its Environment for its parent
 
 function a() {
   var b = 10;

@@ -814,3 +814,9 @@ console.log("Female Users:", femaleUsers);
 Feel free to explore and modify the code for your own learning and understanding of higher-order functions and array methods in JavaScript.
 
 Feel free to use this README for your documentation!
+
+
+30secondsofcode.org
+javascript.info
+
+https://quickref.me/

@@ -37,8 +37,8 @@ console.log(d); // 100, here also golbal d got shadowed by block scoped d. And t
 
 // ----------------------------------------------------------------------------
 
-let x = 10; // this is Script scoped/ other scoped. Not Global Scoed
-const y = 10; // this is Script scoped/ other scoped. Not Global Scoed
+let x = 10; // this is Script scoped/ other scoped. Not Global Scoped
+const y = 10; // this is Script scoped/ other scoped. Not Global Scoped
 {
   let x = 20; // this is Blocked Scoped
   const y = 20; // this is Blocked Scoped
