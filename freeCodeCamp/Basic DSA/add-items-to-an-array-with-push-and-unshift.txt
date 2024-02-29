@@ -1,0 +1,15 @@
+function mixedNumbers(arr) {
+  // Only change code below this line
+  const unshiftArr=['three', 2, 'I']
+  const pushArr=[ 7,'VIII',9]
+  for(let i=0; i<3; i++){
+    arr.push(pushArr[i])
+  }
+  for(let i=0; i<3; i++){
+    arr.unshift(unshiftArr[i])
+  }
+  // Only change code above this line
+  return arr;
+}
+
+console.log(mixedNumbers(['IV', 5, 'six']));
