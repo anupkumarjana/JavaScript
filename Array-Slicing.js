@@ -14,9 +14,6 @@
 // Passed:The first array should remain the same after the function runs.
 // Passed:The second array should remain the same after the function runs.
 
-
-
-
 function frankenSplice(arr1, arr2, n) {
   if (arr2.length === 0) {
     return arr1;
