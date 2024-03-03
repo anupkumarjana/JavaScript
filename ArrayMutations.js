@@ -43,4 +43,4 @@ mutation(["hello", "hey"]);
 function mutation(arr) {
   const [str1, str2] = arr.map((str) => str.toLowerCase());
   return [...str2].every((char) => str1.includes(char));
-}
+}   
