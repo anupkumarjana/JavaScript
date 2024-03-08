@@ -1,0 +1,24 @@
+function rot13(str) {
+  return str.split('')
+    // Iterate over each character
+    .map(char => {
+      // Check if the character is an uppercase letter
+      if (/[A-Z]/.test(char)) {
+        // Use the ROT13 algorithm to shift the letter by 13 places
+        const decodedCharCode = (char.charCodeAt(0) - 'A'.charCodeAt(0) + 13) % 26 + 'A'.charCodeAt(0);
+        // Convert the decoded character code back to a letter
+        return String.fromCharCode(decodedCharCode);
+      } else {
+        // If the character is not an uppercase letter, pass it unchanged
+        return char;
+      }
+    })
+    // Join the array of characters back into a string
+    .join('');
+}
+
+rot13("SERR PBQR PNZC");
+console.log(rot13("SERR PBQR PNZC"))
+
+const a="A"
+// console.log(a.charCodeAt(0))

@@ -1,0 +1,11 @@
+function palindrome(str) {
+  const cleanedString=str.replace(/[^A-Za-z0-9]/g, '').toLowerCase()
+  console.log(cleanedString)
+  let revStr= cleanedString.split("").reverse().join("")
+  return revStr===cleanedString;
+}
+
+// palindrome("_ eye");
+// console.log(palindrome("race car"))
+palindrome("My age is 0, 0 si ega ym.");
+palindrome("A man, a plan, a canal. Panama")
